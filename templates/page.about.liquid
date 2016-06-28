@@ -1,0 +1,178 @@
+<style>
+  .about + .footer {
+    margin-top: 0;
+  }
+  .middle-section {
+    width: 100% !important;
+    padding: 30px 0 !important;
+  }
+  .middle-section .page {
+    margin: 0 40px; 
+  }
+</style>
+{% capture positions %}{{ settings.position_1 }},{{ settings.position_2 }},{{ settings.position_3 }},{{ settings.position_4 }},{{ settings.position_5 }},{{ settings.position_6 }},{{ settings.position_7 }},{{ settings.position_8 }},{{ settings.position_9 }},{{ settings.position_10 }}{% endcapture %}
+{% assign positions = positions | split: ',' %}
+
+{% if settings.slideshow_enabled %}
+
+<div class="about">
+  <div id="homepage_slider" class="flexslider">
+    <ul class="slides">
+      {% if settings.video_position == '1' %}{{ video_slide }}{% endif %}
+      {% if settings.slideshow_1_enabled %}
+	    	<li>
+	    		<img src="{{ 'Three_Box_2.jpg' | asset_url }}" alt="{{ 'Konvoy, Fantom, and Heron' | escape }}" />
+	    		{% if settings.image_1_headline != blank or settings.image_1_subtitle != blank or settings.image_1_button_text != blank %}
+	    		  <div class="flex-caption">
+              <div class="container">
+                <div class="columns {% if settings.image_1_text_align == 'left' %} align_left ten offset-by-one {% elsif settings.image_1_text_align == 'right' %} align_left seven offset-by-nine {% else %} sixteen {% endif %}">
+                  <h1 class="headline" style="color:{{settings.banner_color}}">{{ 'Our Fellosophy' }}</h1>
+                  <p class="subtitle" style="color:{{settings.banner_color}}">{{ }}</p>
+                  {% if settings.image_1_button_text != blank %}
+                    <a href="{{ settings.image_1_link }}" class="action_button">
+                      {{ settings.image_1_button_text }}
+                    </a>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+	    		{% endif %}
+	    	</li>
+	    {% endif %}
+      {% if settings.video_position == '2' %}{{ video_slide }}{% endif %}
+      {% if settings.slideshow_2_enabled %}
+      	<li>
+      		<a href="{{ settings.image_2_link }}"><img src="{{ 'slideshow_2.jpg' | asset_url }}" alt="{{ settings.image_2_alt_text | escape }}" /></a>
+          {% if settings.image_2_headline != blank or settings.image_2_subtitle != blank or settings.image_2_button_text != blank %}
+            <div class="flex-caption">
+              <div class="container">
+                <div class="columns {% if settings.image_2_text_align == 'left' %} align_left ten offset-by-one {% elsif settings.image_2_text_align == 'right' %} align_left seven offset-by-nine {% else %} sixteen {% endif %}">
+                  <p class="headline" style="color:{{settings.banner_color}}">{{ settings.image_2_headline }}</p>
+                  <p class="subtitle" style="color:{{settings.banner_color}}">{{ settings.image_2_subtitle }}</p>
+                  {% if settings.image_2_button_text != blank %}
+                    <a href="{{ settings.image_2_link }}" class="action_button">
+                      {{ settings.image_2_button_text }}
+                    </a>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          {% endif %}
+        </li>
+      {% endif %}
+      {% if settings.video_position == '3' %}{{ video_slide }}{% endif %}
+      {% if settings.slideshow_3_enabled %}
+      	<li>
+      		<a href="{{ settings.image_3_link }}"><img src="{{ 'slideshow_3.jpg' | asset_url }}" alt="{{ settings.image_3_alt_text | escape }}" /></a>
+          {% if settings.image_3_headline != blank or settings.image_3_subtitle != blank or settings.image_3_button_text != blank %}
+            <div class="flex-caption">
+              <div class="container">
+                <div class="columns {% if settings.image_3_text_align == 'left' %} align_left ten offset-by-one {% elsif settings.image_3_text_align == 'right' %} align_left seven offset-by-nine {% else %} sixteen {% endif %}">
+                  <p class="headline" style="color:{{settings.banner_color}}">{{ settings.image_3_headline }}</p>
+                  <p class="subtitle" style="color:{{settings.banner_color}}">{{ settings.image_3_subtitle }}</p>
+                  {% if settings.image_3_button_text != blank %}
+                    <a href="{{ settings.image_3_link }}" class="action_button">
+                      {{ settings.image_3_button_text }}
+                    </a>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          {% endif %}
+        </li>
+      {% endif %}
+      {% if settings.video_position == '4' %}{{ video_slide }}{% endif %}
+      {% if settings.slideshow_4_enabled %}
+      	<li>
+      		<a href="{{ settings.image_4_link }}"><img src="{{ 'slideshow_4.jpg' | asset_url }}" alt="{{ settings.image_4_alt_text | escape }}" /></a>
+          {% if settings.image_4_headline != blank or settings.image_4_subtitle != blank or settings.image_4_button_text != blank %}
+            <div class="flex-caption">
+              <div class="container">
+                <div class="columns {% if settings.image_4_text_align == 'left' %} align_left ten offset-by-one {% elsif settings.image_4_text_align == 'right' %} align_left seven offset-by-nine {% else %} sixteen {% endif %}">
+                  <p class="headline" style="color:{{settings.banner_color}}">{{ settings.image_4_headline }}</p>
+                  <p class="subtitle" style="color:{{settings.banner_color}}">{{ settings.image_4_subtitle }}</p>
+                  {% if settings.image_4_button_text != blank %}
+                    <a href="{{ settings.image_4_link }}" class="action_button">
+                      {{ settings.image_4_button_text }}
+                    </a>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          {% endif %}
+        </li>
+      {% endif %}
+      {% if settings.video_position == '5' %}{{ video_slide }}{% endif %}
+      {% if settings.slideshow_5_enabled %}
+      	<li>
+      		<a href="{{ settings.image_5_link }}"><img src="{{ 'slideshow_5.jpg' | asset_url }}" alt="{{ settings.image_5_alt_text | escape }}" /></a>
+          {% if settings.image_5_headline != blank or settings.image_5_subtitle != blank or settings.image_5_button_text != blank %}
+            <div class="flex-caption">
+              <div class="container">
+                <div class="columns {% if settings.image_5_text_align == 'left' %} align_left ten offset-by-one {% elsif settings.image_5_text_align == 'right' %} align_left seven offset-by-nine {% else %} sixteen {% endif %}">
+                  <p class="headline" style="color:{{settings.banner_color}}">{{ settings.image_5_headline }}</p>
+                  <p class="subtitle" style="color:{{settings.banner_color}}">{{ settings.image_5_subtitle }}</p>
+                  {% if settings.image_5_button_text != blank %}
+                    <a href="{{ settings.image_5_link }}" class="action_button">
+                      {{ settings.image_5_button_text }}
+                    </a>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          {% endif %}
+        </li>
+      {% endif %}
+      {% if settings.video_position == '6' %}{{ video_slide }}{% endif %}
+      {% if settings.slideshow_6_enabled %}
+      	<li>
+      		<a href="{{ settings.image_6_link }}"><img src="{{ 'slideshow_6.jpg' | asset_url }}" alt="{{ settings.image_6_alt_text | escape }}" /></a>
+          {% if settings.image_6_headline != blank or settings.image_6_subtitle != blank or settings.image_6_button_text != blank %}
+            <div class="flex-caption">
+              <div class="container">
+                <div class="columns {% if settings.image_6_text_align == 'left' %} align_left ten offset-by-one {% elsif settings.image_6_text_align == 'right' %} align_left seven offset-by-nine {% else %} sixteen {% endif %}">
+                  <p class="headline" style="color:{{settings.banner_color}}">{{ settings.image_6_headline }}</p>
+                  <p class="subtitle" style="color:{{settings.banner_color}}">{{ settings.image_6_subtitle }}</p>
+                  {% if settings.image_6_button_text != blank %}
+                    <a href="{{ settings.image_6_link }}" class="action_button">
+                      {{ settings.image_6_button_text }}
+                    </a>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          {% endif %}
+        </li>
+      {% endif %}
+    </ul>
+	</div>
+
+
+{% endif %}
+
+  <div class="container middle-section main content"> 
+    <div class="columns page">
+      {% include 'page-multi-column', content: page.content %}
+    </div>
+  </div>
+  <div class="main mobile_hidden" style="display: flex; background-color: #e9f6fb;">
+    <div style="width: 50%">
+      <img class="left" src="{{ 'founders.jpg' | asset_url }}" alt="{{ 'Fello Founders: Jonathan, Jason, Sasha' | escape }}" />
+    </div>
+    <div class="left center" style="width: 50%; margin-top: auto; margin-bottom: auto;">
+      <img src="{{ 'fello_circle.png' | asset_url }}" alt="{{ 'vosh international' | escape }}" style="width: 20%;"/>
+      <p style="margin: 20px;">Since day 1 we set out to establish a company that values customers above all. We are dedicated to delivering quality eyewear that rivals more expensive, well known, brands.</p>
+    </div>
+    <br class="clear" />
+  </div>
+  <div class="main mobile_show" style="display: flex; display: none; background-color: #e9f6fb;">
+    <div style="width: 100%">
+      <img class="left" src="{{ 'founders.jpg' | asset_url }}" alt="{{ 'Fello Founders: Jonathan, Jason, Sasha' | escape }}" />
+    </div>
+    <div class="left center" style="width: 100%; margin-top: auto; margin-bottom: auto;">
+      <img class="mobile_hidden" src="{{ 'fello_circle.png' | asset_url }}" alt="{{ 'vosh international' | escape }}" style="width: 20%;"/>
+      <p style="margin: 20px;">Since day 1 we set out to establish a company that values customers above all. We are dedicated to delivering quality eyewear that rivals more expensive, well known, brands.</p>
+    </div>
+    <br class="clear" />
+  </div>
+</div>
