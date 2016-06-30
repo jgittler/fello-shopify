@@ -8,9 +8,15 @@
   {% assign tag_count = collection.all_tags | size %}
   {% assign tag_threshold = settings.tag_threshold | minus: 0 %}
 
-  <div class="sixteen columns clearfix collection_nav">
-    <div class="{% if settings.collection_sort and settings.collection_tags and tag_count < tag_threshold %}thirteen{% elsif settings.collection_sort or settings.collection_tags %}ten{% else %}sixteen{% endif %} columns alpha">
-      <h1 class="collection_title {% if settings.collection_tags and tag_count < tag_threshold %}collection_title_tags{% endif %}">{{ "High Quality. Polarized. Affordable." }}</h1>
+  <div class="sixteen columns clearfix collection_nav collection_page_title display-flex">
+    <div style="margin-top: auto; margin-bottom: auto;" class="mobile_show center {% if settings.collection_sort and settings.collection_tags and tag_count < tag_threshold %}thirteen{% elsif settings.collection_sort or settings.collection_tags %}ten{% else %}sixteen{% endif %} columns alpha">
+      <p class="collection_title">High Quality.</p>
+      <p class="collection_title">Polarized.</p>
+      <p class="collection_title">Artisan Designs.</p>
+    </div>
+
+    <div class="mobile_hidden center display-flex {% if settings.collection_sort and settings.collection_tags and tag_count < tag_threshold %}thirteen{% elsif settings.collection_sort or settings.collection_tags %}ten{% else %}sixteen{% endif %} columns alpha">
+      <h1 class="collection_title {% if settings.collection_tags and tag_count < tag_threshold %}collection_title_tags{% endif %}">{{ "High Quality. Polarized. Artisan Designs.</h1>
       {% if settings.collection_tags %}
         {% if tag_count < tag_threshold %}
           <ul class="collection_menu">
