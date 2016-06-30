@@ -230,7 +230,24 @@
         <div class="container">
           <div class="sixteen columns">
           	<div class="section">
-              {% include 'page-multi-column', content: pages[settings.homepage].content %}
+              <style>
+                @media only screen and (min-width: 479px) {
+                  .mobile_show { display: none !important }
+                }
+                @media only screen and (max-width: 479px) {
+                  .mobile_show { display: block !important }
+                }
+              </style>
+              <h2 class="center" style="font-variant: small-caps;">Fight Blindness Together</h2>
+              <h4 class="center mobile_hidden">For every pair of sunglasses sold, Fello donates <strong style="color: #1fa7d6;">19%</strong> to VOSH. You can also accompany us in our pursuit to raise awareness and make a difference by contributing <a target="blank" href="http://www.vosh.org/donate"><strong>here</strong></a>.</h4>
+              <p class="center mobile_show">For every pair of sunglasses sold, Fello donates <strong style="color: #1fa7d6;">19%</strong> to VOSH. You can also accompany us in our pursuit to raise awareness and make a difference by contributing <a target="blank" href="http://www.vosh.org/donate"><strong>here</strong></a>.</p>
+              <div class="sixteen columns">
+              <h1 class="seven offset-by-one columns align_right mobile_hidden" style="color: #1fa7d6; font-size: 50px;">3660</h1>
+              <div class="seven columns align_left mobile_hidden">
+              <h3>Lives</h3>
+              <h3>Changed</h3>
+              </div>
+              </div>
           	</div>
           </div>
         </div>
