@@ -43,7 +43,7 @@
               <div class="container" style="margin-top: -20%;">
                 <div class="columns {% if settings.image_1_text_align == 'left' %} align_left ten offset-by-one {% elsif settings.image_1_text_align == 'right' %} align_left seven offset-by-nine {% else %} sixteen {% endif %}">
                   <h1 class="headline" style="color:{{settings.banner_color}}">{{ settings.image_1_headline }}</h1>
-                  <p class="subtitle" style="color:{{settings.banner_color}}">{{ settings.image_1_subtitle }}</p>
+                  <p class="subtitle" style="line-height: 1.6em; color:{{settings.banner_color}}">{{ settings.image_1_subtitle }}</p>
                   {% if settings.image_1_button_text != blank %}
                     <a href="{{ settings.image_1_link }}" class="action_button">
                       {{ settings.image_1_button_text }}

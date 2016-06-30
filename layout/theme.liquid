@@ -73,7 +73,7 @@
       <div class="container content"> 
         <div class="sixteen columns {% unless template contains "index" %}header_border{% else %}homepage{% endunless %}">
         <div class="four columns logo alpha">
-          <a href="{{ shop.url }}" title="{{ shop.name }}" style="line-height: 20px;">
+          <a href="{{ shop.url }}" title="{{ shop.name }}">
             {% if settings.use_logo %}
               <img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" />
             {% else %}
@@ -84,8 +84,7 @@
         
         <div class="twelve nav omega">
           <div class="mobile_hidden mobile_menu_container">
-            <!-- REMOVED search_nav CSS CLASS -->
-            <ul class="top_menu {% if settings.display_search_box %}{% endif %}">
+            <ul class="top_menu {% if settings.display_search_box %}search_nav{% endif %}">
               {% if settings.header_social_icons %}
                 <li> 
                   <ul class="social_icons">
@@ -143,43 +142,34 @@
                   </li>
                 {% endfor %}
               {% endif %}
-              <!-- TURN OFF LOGGING IN & LOGGING OUT IN THE NAVBAR -->
-              {% if false %}
-                {% if shop.customer_accounts_enabled %}
-                  {% if customer %}
-                    <li>
-                      <a href="/account">{{ customer.name }}</a>
-                    </li>
-                    <li>
-                      {{ 'layout.customer.log_out' | t | customer_logout_link }}
-                    </li>
-                  {% else %}
-                    <li>
-                      {{ 'layout.customer.log_in' | t | customer_login_link }}
-                    </li>
-                  {% endif %}
-                {% endif %}
-              {% endif %}
-              <!-- TURN OFF CURRENCIES IN THE NAVBAR -->
-              {% if false %}
-                {% if settings.show_multiple_currencies %}
+              {% if shop.customer_accounts_enabled %}
+                {% if customer %}
                   <li>
-                    {% include 'currencies-switcher' %}
+                    <a href="/account">{{ customer.name }}</a>
+                  </li>
+                  <li>
+                    {{ 'layout.customer.log_out' | t | customer_logout_link }}
+                  </li>
+                {% else %}
+                  <li>
+                    {{ 'layout.customer.log_in' | t | customer_login_link }}
                   </li>
                 {% endif %}
               {% endif %}
-              <!-- TURN OFF SEARCH IN THE NAVBAR -->
-              {% if false %}
-                {% if settings.display_search_box %}
-                  <li>
-                    <form class="search" action="/search">
-                      {% if settings.search_option != "everything" %}
-                        <input type="hidden" name="type" value="product" />
-                      {% endif %}
-                      <input type="text" name="q" class="search_box" placeholder="{{ 'general.search.placeholder' | t }}" value="{% if search and search.results.first.price %}{{ search.terms }}{% endif %}" autocapitalize="off" autocomplete="off" autocorrect="off" />
-                    </form>
-                  </li>
-                {% endif %}
+              {% if settings.show_multiple_currencies %}
+                <li>
+                  {% include 'currencies-switcher' %}
+                </li>
+              {% endif %}
+              {% if settings.display_search_box %}
+                <li>
+                  <form class="search" action="/search">
+                    {% if settings.search_option != "everything" %}
+                      <input type="hidden" name="type" value="product" />
+                    {% endif %}
+                    <input type="text" name="q" class="search_box" placeholder="{{ 'general.search.placeholder' | t }}" value="{% if search and search.results.first.price %}{{ search.terms }}{% endif %}" autocapitalize="off" autocomplete="off" autocorrect="off" />
+                  </form>
+                </li>
               {% endif %}
             </ul>
             <ul class="main menu">
@@ -436,26 +426,22 @@
           </p>
         </div>
 
-        <!-- DONT SHOW CREDITS OR PAYMENT METHODS -->
-        {% if false %}
-          <div class="ten columns credits_right">
-            <p class="credits">
-              {% if settings.display_designed_by == true %}
-                {{ 'layout.general.designer_credits_html' | t }}
-              {% endif %}
-              {{ powered_by_link | split: '" ' | join: '?ref=out-of-the-sandbox" ' | split: '">' | join: '?ref=out-of-the-sandbox">' }}
-            </p>
-
-            {% if settings.display_payment_methods %}
-              <div class="payment_methods">
-                {% for type in shop.enabled_payment_types %}
-                  <img style="width: 30px;" src="{{ type | payment_type_img_url }}" alt="{{ type | replace: "_", " " | capitalize }}" />
-                {% endfor %}
-              </div>
+        <div class="ten columns credits_right">
+<!--           <p class="credits">
+            {% if settings.display_designed_by == true %}
+              {{ 'layout.general.designer_credits_html' | t }}
             {% endif %}
-          </div>
-        {% endif %}
-        <!-- END CREDITS AND PAYMENT METHODS -->
+            {{ powered_by_link | split: '" ' | join: '?ref=out-of-the-sandbox" ' | split: '">' | join: '?ref=out-of-the-sandbox">' }}
+          </p> -->
+
+          {% if settings.display_payment_methods %}
+            <div class="payment_methods">
+              {% for type in shop.enabled_payment_types %}
+                <img style="width: 30px;" src="{{ type | payment_type_img_url }}" alt="{{ type | replace: "_", " " | capitalize }}" />
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
       </div>
 
     </div> <!-- end footer -->

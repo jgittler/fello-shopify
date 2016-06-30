@@ -14,9 +14,9 @@
       {% if settings.video_position == '1' %}{{ video_slide }}{% endif %}
       {% if settings.slideshow_1_enabled %}
 	    	<li>
-	    		<img src="{{ 'char.jpg' | asset_url }}" alt="{{ 'Fello at an eye clinic' | escape }}" />
+	    		<img src="{{ 'charity_top.jpg' | asset_url }}" alt="{{ 'Happy women after receiving a new pair of reading glasses.' | escape }}" />
 	    		{% if settings.image_1_headline != blank or settings.image_1_subtitle != blank or settings.image_1_button_text != blank %}
-	    		  <div class="flex-caption">
+	    		  <div class="flex-caption" style="top: 30%;">
               <div class="container">
                 <div class="columns {% if settings.image_1_text_align == 'left' %} align_left ten offset-by-one {% elsif settings.image_1_text_align == 'right' %} align_left seven offset-by-nine {% else %} sixteen {% endif %}">
                   <h1 class="headline" style="color:{{settings.banner_color}}">{{ 'Giving the Gift of Vision' }}</h1>
@@ -158,7 +158,7 @@
   <br class="clear" />
   <div class="main" style="background-color: #e9f6fb; display: flex;">
     <div style="width: 50%">
-      <img class="left" src="{{ 'fello_and_vosh.jpg' | asset_url }}" alt="{{ 'eye exam' | escape }}" />
+      <img class="left" src="{{ 'char.jpg' | asset_url }}" alt="{{ 'Fello at an eye care clinic.' | escape }}" />
     </div>
     <div class="left center" style="width: 50%; margin-top: auto; margin-bottom: auto;">
       <a href="http://www.vosh.org" target="_blank" title="VOSH International"><img src="{{ 'vosh_logo.png' | asset_url }}" alt="{{ 'vosh international' | escape }}" style="width: 30%;"/></a>
