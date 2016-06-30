@@ -73,7 +73,7 @@
       <div class="container content"> 
         <div class="sixteen columns {% unless template contains "index" %}header_border{% else %}homepage{% endunless %}">
         <div class="four columns logo alpha">
-          <a href="{{ shop.url }}" title="{{ shop.name }}" style="line-height: 20px">
+          <a href="{{ shop.url }}" title="{{ shop.name }}" style="line-height: 20px;">
             {% if settings.use_logo %}
               <img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" />
             {% else %}
