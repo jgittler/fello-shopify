@@ -36,9 +36,11 @@ Description: Shopify Theme (http://www.shopify.com/?ref=out-of-the-sandbox)
   margin-top: -15px;
   margin-bottom: -15px;
   height: 80px;
-  background-position-y: 40%;
-  background-position-x: 40%;
   padding: 0 !important;
+  background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  background-repeat: no-repeat;
 }
 .collection_page_title .collection_title {
   margin-top: auto;
@@ -53,6 +55,11 @@ Description: Shopify Theme (http://www.shopify.com/?ref=out-of-the-sandbox)
   font-size: 15px !important;
 }
 /* End Collection Page Header */
+/* Product Thumnail */
+.fello_info {
+  margin: -30px 0 30px 0;
+}
+/* End Product Thumnail */
 
 /* #Reset & Basics
 ================================================== */
@@ -150,7 +157,7 @@ abbr {
   h1.product_name { margin-bottom: 15px; }
   h1.article_name { margin-bottom: 5px; }
   h2, .h2 { font-size: 26px; margin-bottom: 0.75em }
-  h2.title, h2.title a { font-variant: small-caps; text-align: center; margin-bottom: 1em; color: {{ settings.headline_color }}; }
+  h1.title, h1.title a, h2.title, h2.title a { font-variant: small-caps; text-align: center; margin-bottom: 1em; color: {{ settings.headline_color }}; }
   h2.title a:hover { color: {{ settings.link_color }}; }
   h2.product_name a { color: {{ settings.headline_color }}; }
   h2.article_title { margin: 2px 0 5px 0; font-size: 22px; }
@@ -233,7 +240,7 @@ abbr {
   }
 {% endif %}
 .header div.header_border {
-  border-bottom: solid 1px {{ settings.border_color }};
+  /* border-bottom: solid 1px {{ settings.border_color }}; */
   padding-bottom: 15px;
 }
 .homepage {
@@ -1969,7 +1976,11 @@ html[xmlns] .slides {display: block;}
 .flexslider .slides img {max-width: 100%; display: block; height: auto; margin: 0 auto;}
 .flex-pauseplay span {text-transform: capitalize;}
 
-#homepage_slider .slides > li:first-of-type {display: block }
+#homepage_slider .slides > li:first-of-type {
+  display: block;
+  border-bottom: 2px solid black;
+  border-top: 1px solid #1fa7d6;
+}
 {% if settings.slideshow_stretch %}
   #homepage_slider .slides img, .article .slides img {
     width: 100%;
@@ -2987,7 +2998,7 @@ div.cloudzoom-ajax-loader {
       }
     .flex-caption p.subtitle {
       font-size: 0.9em;
-      line-height: 0.9em;
+      line-height: 1.5em;
       margin-bottom: 0.5em;
     }
     .flex-caption .action_button {
