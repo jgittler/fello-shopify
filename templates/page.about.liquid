@@ -22,7 +22,7 @@
       {% if settings.slideshow_1_enabled %}
 	    	<li>
 	    		<img src="{{ 'Three_Box_2.jpg' | asset_url }}" alt="{{ 'Konvoy, Fantom, and Heron' | escape }}" />
-	    		{% if settings.image_1_headline != blank or settings.image_1_subtitle != blank or settings.image_1_button_text != blank %}
+	    		{% if settings.image_1_headline != blank or true or settings.image_1_subtitle != blank or settings.image_1_button_text != blank %}
 	    		  <div class="flex-caption">
               <div class="container">
                 <div class="columns {% if settings.image_1_text_align == 'left' %} align_left ten offset-by-one {% elsif settings.image_1_text_align == 'right' %} align_left seven offset-by-nine {% else %} sixteen {% endif %}">

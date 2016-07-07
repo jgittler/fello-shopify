@@ -192,7 +192,7 @@
       <div class="sixteen columns">
         <div class="section">
           <h1 class="title" style="margin-bottom: 0px;">{{ collections[settings.frontpage_collection].title }}</h1>
-          <h2 class="title" style="margin-bottom: 0px;"><small>Perfectly Polarized. Absolutely Free Shipping.</small></h2>
+          <h2 class="title" style="margin-bottom: 0px;"><small><span class="free_shipping">Free Shipping</span> anywhere in the United States.</small></h2>
           {% include 'product-loop' %}
         </div>
       </div>
@@ -227,32 +227,7 @@
   {% if position == "6" %}
     {% if settings.homepage != blank %}
       </div>  
-      <div class="homepage_content clearfix">
-        <div class="container">
-          <div class="sixteen columns">
-          	<div class="section">
-              <style>
-                @media only screen and (min-width: 479px) {
-                  .mobile_show { display: none !important }
-                }
-                @media only screen and (max-width: 479px) {
-                  .mobile_show { display: block !important }
-                }
-              </style>
-              <h2 class="center" style="font-variant: small-caps;">Fight Blindness Together</h2>
-              <h4 class="center mobile_hidden">For every pair of sunglasses sold, Fello donates <strong style="color: #1fa7d6;">19%</strong> to VOSH. You can also accompany us in our pursuit to raise awareness and make a difference by contributing <a target="blank" href="http://www.vosh.org/donate"><strong>here</strong></a>.</h4>
-              <p class="center mobile_show">For every pair of sunglasses sold, Fello donates <strong style="color: #1fa7d6;">19%</strong> to VOSH. You can also accompany us in our pursuit to raise awareness and make a difference by contributing <a target="blank" href="http://www.vosh.org/donate"><strong>here</strong></a>.</p>
-              <div class="sixteen columns">
-              <h1 class="seven offset-by-one columns align_right mobile_hidden" style="color: #1fa7d6; font-size: 50px;">3660</h1>
-              <div class="seven columns align_left mobile_hidden">
-              <h3>Lives</h3>
-              <h3>Changed</h3>
-              </div>
-              </div>
-          	</div>
-          </div>
-        </div>
-      </div>
+
       <div class="container content" style="padding-top: 20px">
     {% endif %}
   {% endif %}
