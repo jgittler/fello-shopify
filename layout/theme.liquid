@@ -213,7 +213,7 @@
               <a href="#" class="navicon" title="{{ 'layout.general.menu' | t }}"><span class="button_label">{{ 'layout.general.menu' | t }}</span></a>
             </li>
             <li>
-              <a href="/cart" class="cart_button {% if cart.item_count > 0 %}active{% endif %}" title="{{ 'layout.general.cart' | t }}"><span class="button_label" style="position: relative; top: 2px;">{{ 'layout.general.cart' | t }}</span>{% if cart.item_count > 0 %}<span class="cart_count"> ({{ cart.item_count }})</span>{% endif %}</a>
+              <a href="/cart" class="cart_button {% if cart.item_count > 0 %}active{% endif %}" title="{{ 'layout.general.cart' | t }}"><span class="button_label" style="position: relative; top: 2px;">{{ 'layout.general.cart' | t }}</span>{% if cart.item_count > 0 %}<span class="cart_count mobile_hidden"> ({{ cart.item_count }})</span>{% endif %}</a>
             </li>
           </ul>
         </div>

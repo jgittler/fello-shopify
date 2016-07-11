@@ -42,7 +42,7 @@
         <div class="four columns omega">
           <h4>{{ 'cart.general.total' | t }}</h4>
         </div>
-      
+        
         <div class="clear"></div>
       </div>
       
@@ -60,9 +60,8 @@
               <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" title="{{ 'cart.general.remove' | t }}">{{ 'cart.general.remove' | t }}</a>
             </span>
           </p>
-          <p>
-            <a href="{{ item.url }}" title="{{ item.title | escape }}">{{ item.title }}</a>
-          </p> 
+
+          <p style="padding-top: 4%;"><a href="{{ item.url }}" title="{{ item.title | escape }}">{{ item.title }}</a></p>
           
           {% if item.properties %}
             <p>
@@ -103,6 +102,7 @@
       {% endfor %}
       </ul>
       <div class="twelve columns alpha">
+        <p style="float: left;">Pre-orders will be shipped at the end of July. We thank you for your patience.</p>
         <h4 class="subtotal">
           {{ 'cart.general.subtotal' | t }}
         </h4>

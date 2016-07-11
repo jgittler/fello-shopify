@@ -71,6 +71,31 @@
     </div>  
   </form>
 
+<!-- Hack to fix pre-order tool tip on hover and product form -->
+<script>
+$(document).ready(function() {
+  $(window).resize(function () {
+      checkProductForms();
+  }); 
+  if(!$(".tablet_show input#pre-order").length) {
+    $(".tablet_show .purchase.clearfix.inline_purchase").html('<input type="submit" id="pre-order" value="Pre-Order" class="tooltipstered">')
+  }
+  if(!$(".tablet_hidden input#pre-order").length) {
+    $(".tablet_hidden .purchase.clearfix.inline_purchase").html('<input type="submit" id="pre-order" value="Pre-Order" class="tooltipstered">')
+  }  
+  $("#pre-order").removeClass("tooltipstered");
+
+  function checkProductForms() {
+    if ($(".product_holder:visible").length > 1) {
+      $($(".product_holder")[0]).hide();
+    }
+    if ($(".product_holder:visible").length == 0) {
+      $($(".product_holder")[0]).show()
+    }
+  }
+});
+</script>
+
   {% if product.variants.size > 1 or product.options.size > 1 %}
     <script type="text/javascript">
       // <![CDATA[  
