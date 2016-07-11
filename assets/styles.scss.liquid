@@ -32,7 +32,7 @@ Description: Shopify Theme (http://www.shopify.com/?ref=out-of-the-sandbox)
 /*--- ADDED STYLES ---*/
 /* Collection Page Header */
 .collection_page_title {
-  background-image: url("//cdn.shopify.com/s/files/1/1321/8937/t/6/assets/fello_models.jpg");
+  background-image: url("//cdn.shopify.com/s/files/1/1321/8937/t/6/assets/wood_with_tools_faded_no_bg.jpg?5778672893982435772");
   margin-top: -15px;
   margin-bottom: -15px;
   height: 80px;
@@ -41,6 +41,7 @@ Description: Shopify Theme (http://www.shopify.com/?ref=out-of-the-sandbox)
   -moz-background-size: cover;
   -webkit-background-size: cover;
   background-repeat: no-repeat;
+  background-position-y: 40%;
 }
 .collection_page_title .collection_title {
   margin-top: auto;
@@ -74,6 +75,12 @@ Description: Shopify Theme (http://www.shopify.com/?ref=out-of-the-sandbox)
   width: 50%;
   border-color: rgba(31, 167, 214, .3);
 }
+.sale_ribbon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+}
 .fello_info .title.no_hover {
   color: black !important;
 }
@@ -85,17 +92,26 @@ Description: Shopify Theme (http://www.shopify.com/?ref=out-of-the-sandbox)
 .charity_counter h4 {
   border: none;
 }
+span.quick_shop.action_button {
+  width: 25% !important;
+  text-transform: none !important;
+}
 /* End Charity Counter */
 /* Start World Class Designs */
 .world_class_designs h2 {
-  margin-bottom: 30px;
+  margin-bottom: 50px !important;
+  line-height: 1.8em;
 }
 .world_class_designs .free_shipping {
   font-weight: bold;
   border-bottom: 1px solid black;
-  margin-bottom: 30px;
 }
 /* End World Class Designs */
+/* Start Mobile Nav */
+.toggle_menu.nav {
+  height: 116px;
+}
+/* End Mobile Nav */
 /* END ADDED STYLES */
 /* #Reset & Basics
 ================================================== */

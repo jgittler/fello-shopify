@@ -231,14 +231,17 @@
     
     <div class="toggle_menu nav">
       <ul class="mobile_menu">
-        <li>
-          <form class="search" action="/search">
-            {% if settings.search_option != 'everything' %}
-              <input type="hidden" name="type" value="product" />
-            {% endif %}
-            <input type="text" name="q" class="search_box" placeholder="{{ 'general.search.placeholder' | t }}" value="{% if search and search.results.first.price %}{{ search.terms }}{% endif %}" />
-          </form>
-        </li>
+        <!-- TURN OFF MOBILE NAV SEARCH -->
+        {% if false %}
+          <li>
+            <form class="search" action="/search">
+              {% if settings.search_option != 'everything' %}
+                <input type="hidden" name="type" value="product" />
+              {% endif %}
+              <input type="text" name="q" class="search_box" placeholder="{{ 'general.search.placeholder' | t }}" value="{% if search and search.results.first.price %}{{ search.terms }}{% endif %}" />
+            </form>
+          </li>
+        {% endif %}
         {% for link in linklists[settings.main_linklist].links %}
           {% if linklists[link.handle] == empty %}
             <li {% if link.active %}class="active"{% endif %}><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
@@ -269,18 +272,21 @@
             </li>
           {% endfor %}
         {% endif %}
-        {% if shop.customer_accounts_enabled %}
-          {% if customer %}
-            <li>
-              <a href="/account">{{ customer.name }}</a>
-            </li>
-            <li>
-              {{ 'layout.customer.log_out' | t | customer_logout_link }}
-            </li>
-          {% else %}
-            <li>
-              {{ 'layout.customer.log_in' | t | customer_login_link }}
-            </li>
+        <!-- TURN OFF MOBILE NAV SIGN IN/OUT -->
+        {% if false %}
+          {% if shop.customer_accounts_enabled %}
+            {% if customer %}
+              <li>
+                <a href="/account">{{ customer.name }}</a>
+              </li>
+              <li>
+                {{ 'layout.customer.log_out' | t | customer_logout_link }}
+              </li>
+            {% else %}
+              <li>
+                {{ 'layout.customer.log_in' | t | customer_login_link }}
+              </li>
+            {% endif %}
           {% endif %}
         {% endif %}
       </ul>
