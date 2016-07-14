@@ -1,4 +1,14 @@
 {% if product.available %}
+
+
+        <!-- VIEW PRODUCT FACEBOOK EVENT -->
+<script>
+  $(document).ready(function() {   
+    fbq('track', 'view_product_page'); 
+  });
+</script>
+
+
   {% if settings.size_chart != blank %}
     <a href="#size-chart" class="lightbox size_chart">{{ 'products.product.size_chart' | t }}</a>
   {% endif %}
@@ -7,6 +17,8 @@
     
     {% if settings.display_inventory_left %}
       <div class="items_left">
+
+
         {% if product.variants.first.inventory_management != blank and product.variants.first.inventory_quantity > 0 %}
           {% capture items_left_text %}
             {% if product.variants.first.inventory_quantity == 1 %}
@@ -52,11 +64,12 @@
 
     {% if settings.display_product_quantity %}
       <div class="left">
-        <label for="quantity">{{ 'products.product.quantity' | t }}</label>
+        <label for="quantity">{{ 'products.product.quantity' | t }} | Ships at the end of July.</label>
         <input type="number" min="1" size="2" class="quantity" name="quantity" id="quantity" value="1" {% if product.variants.first.inventory_management == 'shopify' and product.variants.first.inventory_quantity > 0 and product.variants.first.inventory_policy == "deny" %}max="{{ product.variants.first.inventory_quantity }}"{% endif %} />
       </div>
     {% endif %}
-    <div style="vertical-align: text-top; margin-top: 30px;" class="purchase clearfix {% if settings.display_product_quantity %}inline_purchase{% endif %}">
+    <div class="clearfix"></div>
+    <div style="vertical-align: text-top; margin: 0px;" class="purchase clearfix {% if settings.display_product_quantity %}inline_purchase{% endif %}">
       {% if settings.cart_action == 'reload_page' %}
         <input type="hidden" name="return_to" value="back" />
       {% elsif settings.cart_action == 'redirect_checkout' %}
@@ -74,6 +87,7 @@
 <!-- Hack to fix pre-order tool tip on hover and product form -->
 <script>
 $(document).ready(function() {
+  checkProductForms();
   $(window).resize(function () {
       checkProductForms();
   }); 

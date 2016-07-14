@@ -29,10 +29,8 @@
         <span itemprop="brand">{{ product.vendor }}</span>
       {% endif %}
       <span class="polarized">Polarized</span>
-      {% if template contains "index" %}
         <hr />
         <img class="stars" src="//cdn.shopify.com/s/files/1/1321/8937/t/6/assets/stars.png?15682363405240701084" alt="Stars">
-      {% endif %}
       {% unless collection_handles contains 'tacoming-soon' %}
         <span class="price {% if product.compare_at_price_max > product.price %}sale{% endif %}" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
           <meta itemprop="price" content="{{ product.price_min | money_without_currency }}" />

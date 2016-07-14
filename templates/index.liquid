@@ -34,25 +34,41 @@
       {% if settings.video_position == '1' %}{{ video_slide }}{% endif %}
       {% if settings.slideshow_1_enabled %}
 	    	<li>
-<!-- TURN OFF SLIDE SHOW LINK -->
-<!--	<a href="{{ settings.image_1_link }}"> -->
+
+	<a href="{{ settings.image_1_link }}">
 		<img src="{{ 'slideshow_1.jpg' | asset_url }}" alt="{{ settings.image_1_alt_text | escape }}" />
-<!-- 	</a> -->
-	    		{% if settings.image_1_headline != blank or settings.image_1_subtitle != blank or settings.image_1_button_text != blank %}
+	</a>
 	    		  <div class="flex-caption">
-              <div class="container" style="margin-top: -20%;">
-                <div class="columns {% if settings.image_1_text_align == 'left' %} align_left ten offset-by-one {% elsif settings.image_1_text_align == 'right' %} align_left seven offset-by-nine {% else %} sixteen {% endif %}">
+              <div class="container">
+                <div class="columns sixteen {% if false %}{% if settings.image_1_text_align == 'left' %} align_left ten offset-by-one {% elsif settings.image_1_text_align == 'right' %} align_left seven offset-by-nine {% else %} sixteen {% endif %}{% endif %}">
                   <h1 class="headline" style="color:{{settings.banner_color}}">{{ settings.image_1_headline }}</h1>
                   <p class="subtitle" style="color:{{settings.banner_color}}">{{ settings.image_1_subtitle }}</p>
-                  {% if settings.image_1_button_text != blank %}
-                    <a href="{{ settings.image_1_link }}" class="action_button">
-                      {{ settings.image_1_button_text }}
-                    </a>
-                  {% endif %}
+                  <script>
+                    var sourceSwap = function () {
+                      var $this = $(this);
+                      var newSource = $this.data('alt-src');
+                      $this.data('alt-src', $this.attr('src'));
+                      $this.attr('src', newSource);
+                    }
+                    $(function () {
+                      $('img.shop_here').hover(sourceSwap, sourceSwap);
+                    });
+                  </script>                    
+	<a href="{{ settings.image_1_link }}">
+                  	<img
+                      class="shop_here"
+                      style="cursor: pointer;
+                        width: 25%;
+                        cursor: pointer;
+                        margin-left: 70%;
+                        margin-bottom: 15%;"
+                      data-alt-src="//cdn.shopify.com/s/files/1/1321/8937/t/11/assets/shop_here.png?4196655515053153137"
+                      src="//cdn.shopify.com/s/files/1/1321/8937/t/11/assets/shop_here_hover.png?17242209078822568361"
+                    />
+                  </a>
                 </div>
               </div>
             </div>
-	    		{% endif %}
 	    	</li>
 	    {% endif %}
       {% if settings.video_position == '2' %}{{ video_slide }}{% endif %}
@@ -191,8 +207,10 @@
       
       <div class="sixteen columns world_class_designs">
         <div class="section">
+          	<a href="{{ settings.image_1_link }}">
           <h1 class="title" style="margin-bottom: 0px;">{{ collections[settings.frontpage_collection].title }}</h1>
-          <h2 class="title"><small><span class="free_shipping">Free Shipping</span> anywhere in the United States.</small></h2>
+          </a>          
+<h2 class="title"><small><span class="free_shipping">Free Shipping</span> anywhere in the United States.</small></h2>
           {% include 'product-loop' %}
         </div>
       </div>

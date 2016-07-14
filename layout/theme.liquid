@@ -185,7 +185,7 @@
             <ul class="main menu">
               {% for link in linklists[settings.main_linklist].links %}
                 {% if linklists[link.handle] == empty %}
-                  <li><a href="{{ link.url }}" {% if link.active %}class="active"{% endif %}>{{ link.title }}</a></li>
+                  <li><a href="{{ link.url }}" style="{% if link.title == 'Sale' %}color: red;{% endif %}" {% if link.active %}class="active"{% endif %}>{{ link.title }}</a></li>
                 {% else %}
                   <li class="dropdown"><a href="{{ link.url }}" {% if link.active %}class="active"{% endif %} {% for link in linklists[link.handle].links %}{% if link.active %}class="active"{% endif %}{% endfor %}>{{ link.title }} <span class="arrow">▾</span></a> 
                     <ul>
@@ -354,13 +354,13 @@
         <div class="sixteen columns instagram">
 		  {% assign trinstas = "t_r_1.jpg t_r_2.jpg t_r_3.jpg t_r_4.jpg t_r_5.jpg " | split: ' ' %}
           {% for insta in trinstas %}
-            <img class="left" src="{{ insta | asset_url }}" alt="{{ 'Fello Eyewear Instagram' | escape }}" />
+            <img class="left lazy" src="{{ insta | asset_url }}" alt="{{ 'Fello Eyewear Instagram' | escape }}" />
           {% endfor %}
         </div>
         <div class="sixteen columns instagram">
           {% assign trinstas = "b_r_1.jpg b_r_2.jpg b_r_3.jpg b_r_4.jpg b_r_5.jpg " | split: ' ' %}
           {% for insta in trinstas %}
-            <img class="left" src="{{ insta | asset_url }}" alt="{{ 'Fello Eyewear Instagram' | escape }}" />
+            <img class="left lazy" src="{{ insta | asset_url }}" alt="{{ 'Fello Eyewear Instagram' | escape }}" />
           {% endfor %}
         </div>
       </div>
