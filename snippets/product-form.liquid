@@ -2,6 +2,31 @@
 
 
         <!-- VIEW PRODUCT FACEBOOK EVENT -->
+<!-- Hack to fix pre-order tool tip on hover and product form -->
+<script>
+$(document).ready(function() {
+  checkProductForms();
+  $(window).resize(function () {
+      checkProductForms();
+  }); 
+  if(!$(".tablet_show input#pre-order").length) {
+    $(".tablet_show .purchase.clearfix.inline_purchase").html('<input type="submit" id="pre-order" value="Pre-Order" class="tooltipstered">')
+  }
+  if(!$(".tablet_hidden input#pre-order").length) {
+    $(".tablet_hidden .purchase.clearfix.inline_purchase").html('<input type="submit" id="pre-order" value="Pre-Order" class="tooltipstered">')
+  }  
+  $("#pre-order").removeClass("tooltipstered");
+
+  function checkProductForms() {
+    if ($(".product_holder:visible").length > 1) {
+      $($(".product_holder")[0]).hide();
+    }
+    if ($(".product_holder:visible").length == 0) {
+      $($(".product_holder")[0]).show()
+    }
+  }
+});
+</script>
 <script>
   $(document).ready(function() {   
     fbq('track', 'view_product_page'); 
@@ -64,7 +89,7 @@
 
     {% if settings.display_product_quantity %}
       <div class="left">
-        <label for="quantity">{{ 'products.product.quantity' | t }} | Ships at the end of July.</label>
+        <label for="quantity">{{ 'products.product.quantity' | t }}</label>
         <input type="number" min="1" size="2" class="quantity" name="quantity" id="quantity" value="1" {% if product.variants.first.inventory_management == 'shopify' and product.variants.first.inventory_quantity > 0 and product.variants.first.inventory_policy == "deny" %}max="{{ product.variants.first.inventory_quantity }}"{% endif %} />
       </div>
     {% endif %}
@@ -78,37 +103,14 @@
 
       {% capture add_to_cart_label %}{% if collection_handles contains 'pre-order' %}{{ 'collections.general.pre_order' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endif %}{% endcapture %}
       <button type="submit" name="add" class="action_button add_to_cart" data-label={{ add_to_cart_label | json }}><span class="text">{{ add_to_cart_label }}</span></button>
+      
       <span class="continue_shopping">
         <a {% if product-form %}href="{% if collection.url != blank %}{{ collection.url }}{% else %}/collections/all{% endif %}"{% else %}href="javascript:void(0);" class="close"{% endif %}>{{ 'layout.general.continue_shopping' | t }}</a> {{ 'layout.general.or' | t }} <a href="/checkout">{{ 'layout.general.checkout' | t }}</a>
       </span>
     </div>  
+<p style="margin: 5px 5px 5px 0;">Ships at the end of July.</p> 
   </form>
 
-<!-- Hack to fix pre-order tool tip on hover and product form -->
-<script>
-$(document).ready(function() {
-  checkProductForms();
-  $(window).resize(function () {
-      checkProductForms();
-  }); 
-  if(!$(".tablet_show input#pre-order").length) {
-    $(".tablet_show .purchase.clearfix.inline_purchase").html('<input type="submit" id="pre-order" value="Pre-Order" class="tooltipstered">')
-  }
-  if(!$(".tablet_hidden input#pre-order").length) {
-    $(".tablet_hidden .purchase.clearfix.inline_purchase").html('<input type="submit" id="pre-order" value="Pre-Order" class="tooltipstered">')
-  }  
-  $("#pre-order").removeClass("tooltipstered");
-
-  function checkProductForms() {
-    if ($(".product_holder:visible").length > 1) {
-      $($(".product_holder")[0]).hide();
-    }
-    if ($(".product_holder:visible").length == 0) {
-      $($(".product_holder")[0]).show()
-    }
-  }
-});
-</script>
 
   {% if product.variants.size > 1 or product.options.size > 1 %}
     <script type="text/javascript">

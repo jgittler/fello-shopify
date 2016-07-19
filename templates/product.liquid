@@ -229,22 +229,16 @@
         </p>
         
         {% include 'product-notify-me' %}
-      {% endunless %}
-      </div>
-      
-      <div class="sixteen columns product-{{ product.id }}" itemscope itemtype="http://schema.org/Product">
-       {% if settings.product_description_position == "top" %}
+             {% if settings.product_description_position == "top" %}
          {% if product.description != blank %}
           <div class="description" itemprop="description">
             {{ product.description | split: '<!-- split -->' | first }}
           </div>
          {% endif %}
-         {% if product.available %}<hr />{% endif %}
+<!--          {% if product.available %}<hr />{% endif %} -->
        {% endif %}
 
-      {% unless collection_handles contains 'coming-soon' %}
-        {% include 'product-form' with 'product' %}
-      {% endunless %}  
+
 
       {% if settings.product_description_position == "bottom" %}
         {% if product.available %}<hr />{% endif %}
@@ -254,9 +248,17 @@
          </div>
         {% endif %}
       {% endif %}
+      {% endunless %}
+      </div>
+      
+      <div class="sixteen columns product-{{ product.id }}" itemscope itemtype="http://schema.org/Product">
+      {% unless collection_handles contains 'coming-soon' %}
+        <hr style="margin-top: 0;" />
+        {% include 'product-form' with 'product' %}
+      {% endunless %}  
 
       {% if settings.display_collections or settings.display_tags or settings.display_type %}
-       <hr />
+<!--        <hr /> -->
       {% endif %}
 
        <div class="meta">
