@@ -1,9 +1,3 @@
-
-<!-- spurit_po-added -->
-{% include 'spurit_po-product-snippet' %}
-<!-- /spurit_po-added -->
-{% include 'spurit_po-collection-list-snippet', pageProducts: collection.products %}
-
 {% paginate collection.products by settings.pagination_limit %}
   {% assign tag_count = collection.all_tags | size %}
   {% assign tag_threshold = settings.tag_threshold | minus: 0 %}

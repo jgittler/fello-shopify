@@ -14,13 +14,11 @@
   <a href="{{ product.url | within: collection }}" itemprop="url">
     <div class="relative product_image">
       <img src="{{ product.featured_image | product_img_url: 'grande' }}" alt="{{ alt_text | escape }}" />
-      {% unless template contains 'index' %}
         {% if settings.quick_shop_enabled %}
           <span data-fancybox-href="#product-{{ product.id }}" class="quick_shop action_button" data-gallery="product-{{ product.id }}-gallery">
             {{ 'collections.general.quick_shop' | t }}
           </span>
         {% endif %}
-      {% endunless %}
     </div>
 
     <div class="info fello_info">            

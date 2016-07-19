@@ -2,37 +2,11 @@
 
 
         <!-- VIEW PRODUCT FACEBOOK EVENT -->
-<!-- Hack to fix pre-order tool tip on hover and product form -->
-<script>
-$(document).ready(function() {
-  checkProductForms();
-  $(window).resize(function () {
-      checkProductForms();
-  }); 
-  if(!$(".tablet_show input#pre-order").length) {
-    $(".tablet_show .purchase.clearfix.inline_purchase").html('<input type="submit" id="pre-order" value="Pre-Order" class="tooltipstered">')
-  }
-  if(!$(".tablet_hidden input#pre-order").length) {
-    $(".tablet_hidden .purchase.clearfix.inline_purchase").html('<input type="submit" id="pre-order" value="Pre-Order" class="tooltipstered">')
-  }  
-  $("#pre-order").removeClass("tooltipstered");
-
-  function checkProductForms() {
-    if ($(".product_holder:visible").length > 1) {
-      $($(".product_holder")[0]).hide();
-    }
-    if ($(".product_holder:visible").length == 0) {
-      $($(".product_holder")[0]).show()
-    }
-  }
-});
-</script>
 <script>
   $(document).ready(function() {   
     fbq('track', 'view_product_page'); 
   });
 </script>
-
 
   {% if settings.size_chart != blank %}
     <a href="#size-chart" class="lightbox size_chart">{{ 'products.product.size_chart' | t }}</a>
@@ -107,8 +81,7 @@ $(document).ready(function() {
       <span class="continue_shopping">
         <a {% if product-form %}href="{% if collection.url != blank %}{{ collection.url }}{% else %}/collections/all{% endif %}"{% else %}href="javascript:void(0);" class="close"{% endif %}>{{ 'layout.general.continue_shopping' | t }}</a> {{ 'layout.general.or' | t }} <a href="/checkout">{{ 'layout.general.checkout' | t }}</a>
       </span>
-    </div>  
-<p style="margin: 5px 5px 5px 0;">Ships at the end of July.</p> 
+    </div>
   </form>
 
 
