@@ -21,7 +21,7 @@
       {% if settings.video_position == '1' %}{{ video_slide }}{% endif %}
       {% if settings.slideshow_1_enabled %}
 	    	<li>
-	    		<img src="{{ 'Three_Box_2.jpg' | asset_url }}" alt="{{ 'Konvoy, Fantom, and Heron' | escape }}" />
+	    		<img class="banner" src="{{ 'Three_Box_2.jpg' | asset_url }}" alt="{{ 'Konvoy, Fantom, and Heron' | escape }}" />
 	    		{% if settings.image_1_headline != blank or true or settings.image_1_subtitle != blank or settings.image_1_button_text != blank %}
 	    		  <div class="flex-caption">
               <div class="container">

@@ -14,7 +14,7 @@
       {% if settings.video_position == '1' %}{{ video_slide }}{% endif %}
       {% if settings.slideshow_1_enabled %}
 	    	<li>
-	    		<img src="{{ 'charity_top.jpg' | asset_url }}" alt="{{ 'Happy women after receiving a new pair of reading glasses.' | escape }}" />
+	    		<img class="banner" src="{{ 'charity_top.jpg' | asset_url }}" alt="{{ 'Happy women after receiving a new pair of reading glasses.' | escape }}" />
 	    		{% if settings.image_1_headline != blank or true or settings.image_1_subtitle != blank or settings.image_1_button_text != blank %}
 	    		  <div class="flex-caption" style="top: 30%;">
               <div class="container">

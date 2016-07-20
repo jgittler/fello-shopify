@@ -13,7 +13,7 @@
 
   <a href="{{ product.url | within: collection }}" itemprop="url">
     <div class="relative product_image">
-      <img src="{{ product.featured_image | product_img_url: 'grande' }}" alt="{{ alt_text | escape }}" />
+      <img src="{{ product.featured_image | product_img_url: 'master' }}" alt="{{ alt_text | escape }}" />
         {% if settings.quick_shop_enabled %}
           <span data-fancybox-href="#product-{{ product.id }}" class="quick_shop action_button" data-gallery="product-{{ product.id }}-gallery">
             {{ 'collections.general.quick_shop' | t }}
@@ -79,7 +79,7 @@
   <div id="product-{{ product.id }}" class="modal spo-product-{{product.id}} product-{{ product.id }}">
     <div class="container section" style="width: inherit">
       <div class="eight columns modal_image flex-active-slide">
-        <img src="{{ product.featured_image | product_img_url: 'grande' }}" alt="{{ alt_text | escape }}" />
+        <img src="{{ product.featured_image | product_img_url: 'master' }}" alt="{{ alt_text | escape }}" />
       </div>
       <div class="six columns">
         <h3>{{ product.title }}</h3>
