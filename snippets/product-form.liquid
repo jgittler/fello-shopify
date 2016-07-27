@@ -95,4 +95,8 @@
       // ]]>
     </script>
   {% endif %}
+{% else %}
+<p class="red">Sorry, this product is currently sold out.
+Send us your email if you'd like to know when it's available.</p>
+{% include 'sold-out' %}
 {% endif %}
