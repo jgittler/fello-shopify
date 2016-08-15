@@ -8,10 +8,6 @@
   });
 </script>
 
-  {% if settings.size_chart != blank %}
-    <a href="#size-chart" class="lightbox size_chart">{{ 'products.product.size_chart' | t }}</a>
-  {% endif %}
-
   <form action="/cart/add" method="post" class="clearfix product_form" data-money-format="{{ shop.money_format }}" data-shop-currency="{{ shop.currency }}" id="product-form-{{ product.id }}">
     
     {% if settings.display_inventory_left %}
